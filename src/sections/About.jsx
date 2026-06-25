@@ -3,26 +3,27 @@ import { Code2, Lightbulb, Rocket, Users } from "lucide-react";
 const highlights = [
   {
     icon: Code2,
-    title: "Clean Code",
+    title: "Desarrollo Web",
     description:
-      "Writing maintainable, scalable code that stands the test of time.",
+      "Creando aplicaciones modernas y funcionales con tecnologías actuales.",
   },
   {
     icon: Rocket,
-    title: "Performance",
+    title: "Aprendizaje Constante",
     description:
-      "Optimizing for speed and delivering lightning-fast user experiences.",
+      "Siempre explorando nuevas herramientas y mejorando mis habilidades.",
   },
   {
     icon: Users,
-    title: "Collaboration",
-    description: "Working closely with teams to bring ideas to life.",
+    title: "Trabajo en Equipo",
+    description:
+      "Colaborando con otras personas para desarrollar mejores proyectos.",
   },
   {
     icon: Lightbulb,
-    title: "Innovation",
+    title: "Creatividad",
     description:
-      "Staying ahead with the latest technologies and best practices.",
+      "Buscando soluciones innovadoras y experiencias atractivas para el usuario.",
   },
 ];
 
@@ -35,49 +36,47 @@ export const About = () => {
           <div className="space-y-8">
             <div className="animate-fade-in">
               <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase">
-                About Me
+                Sobre Mí
               </span>
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold leading-tight animate-fade-in animation-delay-100 text-secondary-foreground">
-              Building the future,
+              Desarrollando ideas,
               <span className="font-serif italic font-normal text-white">
                 {" "}
-                one component at a time.
+                un proyecto a la vez.
               </span>
             </h2>
 
             <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200">
               <p>
-                I'm a passionate software engineer with over 5 years of
-                experience crafting digital products that make a difference. My
-                journey started with a curiosity for how things work on the web,
-                and it has evolved into a deep expertise in modern frontend
-                technologies.
+                Hola, soy Yaretzi Ortiz Garcia. Soy estudiante y desarrolladora
+                apasionada por la tecnología y el desarrollo de software.
               </p>
+
               <p>
-                I specialize in React, Next.js, and TypeScript, building
-                everything from sleek landing pages to complex enterprise
-                applications. My approach combines technical excellence with a
-                keen eye for design and user experience.
+                Tengo experiencia trabajando con tecnologías como React,
+                Flutter, Python, Java y bases de datos como PostgreSQL y
+                MongoDB. Me gusta crear aplicaciones modernas, funcionales y
+                visualmente atractivas.
               </p>
+
               <p>
-                When I'm not coding, you'll find me exploring new technologies,
-                contributing to open-source projects, or sharing knowledge with
-                the developer community.
+                Disfruto aprender nuevas tecnologías, resolver problemas y
+                seguir mejorando mis habilidades en programación y desarrollo
+                web.
               </p>
             </div>
 
             <div className="glass rounded-2xl p-6 glow-border animate-fade-in animation-delay-300">
               <p className="text-lg font-medium italic text-foreground">
-                "My mission is to create digital experiences that are not just
-                functional, but truly delightful — products that users love to
-                use and developers love to maintain."
+                "Mi objetivo es desarrollar proyectos útiles, creativos y que
+                generen un impacto positivo en las personas."
               </p>
             </div>
           </div>
 
-          {/* Right Column - Hilights */}
+          {/* Right Column - Highlights */}
           <div className="grid sm:grid-cols-2 gap-6">
             {highlights.map((item, idx) => (
               <div
@@ -88,7 +87,11 @@ export const About = () => {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 hover:bg-primary/20">
                   <item.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+
+                <h3 className="text-lg font-semibold mb-2">
+                  {item.title}
+                </h3>
+
                 <p className="text-sm text-muted-foreground">
                   {item.description}
                 </p>

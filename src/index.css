@@ -1,26 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0f1418;
-  --color-foreground: #f0f2f5;
+  /* Fondo aesthetic dark lavender */
+  --color-background: #0d0b14;
+  --color-foreground: #f8f5ff;
 
-  --color-card: #141a1f;
+  /* Cards suaves */
+  --color-card: #171320;
 
-  --color-primary: #20b2a6;
+  /* Rosa/lila elegante */
+  --color-primary: #c084fc;
   --color-primary-foreground: #ffffff;
 
-  --color-secondary: #1f2830;
-  --color-secondary-foreground: #20b2a6;
+  /* Tonos secundarios */
+  --color-secondary: #21192f;
+  --color-secondary-foreground: #e9d5ff;
 
-  --color-muted: #252e37;
-  --color-muted-foreground: #7a8491;
+  /* Muted */
+  --color-muted: #2a2238;
+  --color-muted-foreground: #b6a9c9;
 
-  --color-border: #242b32;
+  /* Borders */
+  --color-border: #34294a;
 
-  --radius: 0.75rem;
+  /* Extras */
+  --color-highlight: #ff9ad5;
+  --color-surface: #1b1628;
 
-  --color-highlight: #f5a623;
-  --color-surface: #1a2329;
+  --radius: 1rem;
 }
 
 @layer base {
@@ -28,43 +35,104 @@
     scroll-behavior: smooth;
   }
 
+  * {
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      color 0.3s ease,
+      transform 0.3s ease;
+  }
+
   button {
     cursor: pointer;
   }
 
   body {
-    background-color: var(--color-background);
+    background:
+      radial-gradient(circle at top left, #2b1742 0%, transparent 30%),
+      radial-gradient(circle at bottom right, #3a1f5d 0%, transparent 30%),
+      var(--color-background);
+
     color: var(--color-foreground);
-    font-family: "Inter", sans-serif;
+
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
   }
 
   .font-serif {
     font-family: "Playfair Display", serif;
   }
+
+  ::selection {
+    background-color: color-mix(
+      in srgb,
+      var(--color-primary) 40%,
+      transparent
+    );
+    color: white;
+  }
 }
 
 @layer components {
   .glass {
-    background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
-    backdrop-filter: blur(16px);
-    border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 55%, transparent);
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid
+      color-mix(in srgb, var(--color-primary) 18%, transparent);
+
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
   }
 
   .glass-strong {
-    background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+
     backdrop-filter: blur(24px);
-    border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+
+    border: 1px solid
+      color-mix(in srgb, var(--color-primary) 25%, transparent);
+
+    box-shadow:
+      0 10px 40px rgba(0, 0, 0, 0.45),
+      0 0 30px color-mix(in srgb, var(--color-primary) 10%, transparent);
   }
 
   .glow-text {
-    text-shadow: 0 0 30px
-      color-mix(in srgb, var(--color-primary) 50%, transparent);
+    text-shadow:
+      0 0 12px color-mix(in srgb, var(--color-primary) 70%, transparent),
+      0 0 30px color-mix(in srgb, var(--color-highlight) 35%, transparent);
   }
 
   .glow-border {
-    box-shadow: 0 0 20px
-        color-mix(in srgb, var(--color-primary) 20%, transparent),
-      inset 0 0 20px color-mix(in srgb, var(--color-primary) 5%, transparent);
+    box-shadow:
+      0 0 25px color-mix(in srgb, var(--color-primary) 18%, transparent),
+      0 0 60px color-mix(in srgb, var(--color-highlight) 10%, transparent),
+      inset 0 0 18px
+        color-mix(in srgb, var(--color-primary) 6%, transparent);
+  }
+
+  .cute-hover:hover {
+    transform: translateY(-4px) scale(1.02);
+  }
+
+  .gradient-text {
+    background: linear-gradient(
+      90deg,
+      #f9a8d4,
+      #c084fc,
+      #a5b4fc,
+      #f9a8d4
+    );
+
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: gradient-move 6s linear infinite;
   }
 }
 
@@ -72,13 +140,51 @@
   @keyframes fade-in {
     from {
       opacity: 0;
-      transform: translateY(20px);
-      filter: blur(10px);
+      transform: translateY(25px);
+      filter: blur(12px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
       filter: blur(0);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px
+        color-mix(in srgb, var(--color-primary) 18%, transparent);
+    }
+
+    50% {
+      box-shadow:
+        0 0 35px
+          color-mix(in srgb, var(--color-primary) 30%, transparent),
+        0 0 60px
+          color-mix(in srgb, var(--color-highlight) 12%, transparent);
+    }
+  }
+
+  @keyframes gradient-move {
+    0% {
+      background-position: 0% center;
+    }
+
+    100% {
+      background-position: 300% center;
     }
   }
 
@@ -87,24 +193,17 @@
     100% {
       transform: translate(0, 0);
     }
-    25% {
-      transform: translate(20px, -30px);
-    }
-    50% {
-      transform: translate(-15px, -20px);
-    }
-    75% {
-      transform: translate(30px, 10px);
-    }
-  }
 
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
+    25% {
+      transform: translate(25px, -25px);
     }
+
     50% {
-      transform: translateY(-10px);
+      transform: translate(-20px, -15px);
+    }
+
+    75% {
+      transform: translate(20px, 15px);
     }
   }
 
@@ -112,6 +211,7 @@
     0% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(-50%);
     }
@@ -122,7 +222,11 @@
   }
 
   .animate-float {
-    animation: float 4s ease-in-out infinite;
+    animation: float 5s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
   }
 
   .animate-marquee {
@@ -161,6 +265,7 @@
     0% {
       stroke-dashoffset: 400;
     }
+
     100% {
       stroke-dashoffset: -550;
     }
@@ -171,14 +276,22 @@
   }
 
   .animated-border:hover {
-    background-color: color-mix(in srgb, #26c4b8 15%, transparent);
-    backdrop-filter: blur(16px);
-    box-shadow: 0 0 20px color-mix(in srgb, #26c4b8 20%, transparent);
+    background-color: color-mix(
+      in srgb,
+      var(--color-primary) 14%,
+      transparent
+    );
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+      0 0 25px color-mix(in srgb, var(--color-primary) 25%, transparent),
+      0 0 50px color-mix(in srgb, var(--color-highlight) 10%, transparent);
   }
 
   .timeline-glow {
-    box-shadow: 0 0 40px
-        color-mix(in srgb, var(--color-primary) 35%, transparent),
-      0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
+    box-shadow:
+      0 0 45px color-mix(in srgb, var(--color-primary) 25%, transparent),
+      0 0 80px color-mix(in srgb, var(--color-highlight) 12%, transparent);
   }
 }

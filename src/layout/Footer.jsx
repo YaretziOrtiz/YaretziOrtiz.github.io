@@ -1,16 +1,30 @@
-import { Github, Linkedin, Twitter, Heart } from "lucide-react";
+import { Github, Instagram, Mail, Heart } from "lucide-react";
 
 const socialLinks = [
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  {
+    icon: Github,
+    href: "https://github.com/YaretziOrtiz",
+    label: "GitHub",
+  },
+
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/o_yaretzi/",
+    label: "Instagram",
+  },
+
+  {
+    icon: Mail,
+    href: "mailto:ortizyarezti@gmail.com",
+    label: "Correo",
+  },
 ];
 
 const footerLinks = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#contact", label: "Contact" },
+  { href: "#about", label: "Sobre mí" },
+  { href: "#projects", label: "Proyectos" },
+  { href: "#experience", label: "Experiencia" },
+  { href: "#contact", label: "Contacto" },
 ];
 
 export const Footer = () => {
@@ -20,17 +34,18 @@ export const Footer = () => {
     <footer className="py-12 border-t border-border">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Logo & Copyright */}
+          {/* Logo */}
           <div className="text-center md:text-left">
             <a href="#" className="text-xl font-bold tracking-tight">
-              PM<span className="text-primary">.</span>
+              YO<span className="text-primary">.</span>
             </a>
+
             <p className="text-sm text-muted-foreground mt-2">
-              © {currentYear} Pedro Machado. All rights reserved.
+              © {currentYear} Yaretzi Ortiz. Todos los derechos reservados.
             </p>
           </div>
 
-          {/* Links */}
+          {/* Navegación */}
           <nav className="flex flex-wrap justify-center gap-6">
             {footerLinks.map((link) => (
               <a
@@ -43,12 +58,14 @@ export const Footer = () => {
             ))}
           </nav>
 
-          {/* Social Links */}
+          {/* Redes */}
           <div className="flex items-center gap-4">
             {socialLinks.map((social) => (
               <a
                 key={social.label}
                 href={social.href}
+                target="_blank"
+                rel="noreferrer"
                 aria-label={social.label}
                 className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
               >
@@ -56,6 +73,12 @@ export const Footer = () => {
               </a>
             ))}
           </div>
+        </div>
+
+        {/* Extra */}
+        <div className="mt-8 text-center text-sm text-muted-foreground flex items-center justify-center gap-2">
+          Hecho con <Heart className="w-4 h-4 text-pink-400 fill-pink-400" />{" "}
+          por Yaretzi Ortiz
         </div>
       </div>
     </footer>
